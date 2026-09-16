@@ -1,4 +1,3 @@
-import linenumber = require('linenumber');
 import fs = require('fs');
 import { VariablePathMap, VariablePathDescription } from '../interfaces';
 
@@ -14,14 +13,21 @@ export function parseFile (file: string, allVariablePathMaps: VariablePathMap) {
     const variablePattern: RegExp = /\.(set|macro)\s+([\w\d._]+)[\w\d._, #]*|^ *([a-z0-9_-]+):/gim;
     const content: string = fs.readFileSync(file, 'utf8');
     let n: RegExpExecArray;
+    let read: number = 0;
+    let line: number = 0;
 
     while (n = variablePattern.exec(content)) {
-        const lineNr = linenumber(content, n[0]);
+        while (read < n.index) {
+            if (content.charCodeAt(read) === 10) {
+                line++;
+            }
+            read++;
+        }
 
         const newItem: VariablePathDescription = {
             path: file,
             type: n[1] || 'label',
-            line: lineNr ? lineNr[0].line - 1 : 1
+            line: line
         };
 
         insertElementWithKey(n[2] || n[3], newItem, allVariablePathMaps);

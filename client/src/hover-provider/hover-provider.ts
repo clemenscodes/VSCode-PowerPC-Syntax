@@ -15,6 +15,10 @@ export class AsmHoverProvider implements vscode.HoverProvider {
             data.getDataOffset(hoveredWord, formattedText);
             data.getGlobalAddresses(hoveredWord, formattedText);
             return new vscode.Hover(formattedText);
+        }else if(data.getRegister(hoveredWord) !== null){
+            let formattedText = new vscode.MarkdownString(`${hoveredWord}  \n`);
+            data.setRegisterHover(hoveredWord, formattedText);
+            return new vscode.Hover(formattedText);
         }else if(data.getCommand(hoveredWord) !== data.UnknownCommand){
             let formattedText = new vscode.MarkdownString(`${hoveredWord}  \n`);
             data.setHover(hoveredWord, formattedText);
