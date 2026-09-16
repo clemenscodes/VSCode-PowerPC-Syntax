@@ -87,22 +87,22 @@ function initializeProviders (): void {
     }, (progress: Progress<{increment?: number, message?: string}>, token: CancellationToken) => {
         progress.report({ message: 'Parsing Workspace...' });
 
-        return new Promise((resolve, reject) => {
-            if (token.isCancellationRequested) {
-                reject();
-            }
+        return getAsmFiles()
+            .then(wsFolders => {
+                if (token.isCancellationRequested) {
+                    return 0;
+                }
 
-            getAsmFiles()
-                .then(wsFolders => {
-                    console.log("Resolving Definitions...");
-                    asmDefinitionProvider.parseWorkspaceFolders(wsFolders);
-                    console.log("Resolving References...");
-                    asmReferenceProvider.parseWorkspaceFolders(wsFolders);
-                    console.log("Project Scan Complete");
+                return asmDefinitionProvider
+                    .parseWorkspaceFolders(wsFolders, (read: number, files: number) => {
+                        progress.report({ message: `Parsing Workspace... ${read} of ${files}` });
+                    })
+                    .then(() => {
+                        console.log("Project Scan Complete");
 
-                    resolve(1);
-                });
-        });
+                        return 1;
+                    });
+            });
     });
 }
 

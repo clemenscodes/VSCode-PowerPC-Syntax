@@ -34,14 +34,29 @@ export function parseFile (file: string, allVariablePathMaps: VariablePathMap) {
     }
 }
 
-export function parseFiles (wsFolders): VariablePathMap {
-    const allVariablePathMaps: VariablePathMap = {};
+const FILES_PER_TURN: number = 200;
 
-    wsFolders.forEach(
-        files => files.forEach(
-            file => parseFile(file, allVariablePathMaps)
-        )
-    );
+export async function parseFiles (wsFolders, report?: (read: number, files: number) => void): Promise<VariablePathMap> {
+    const allVariablePathMaps: VariablePathMap = {};
+    const files: string[] = [].concat(...wsFolders);
+    let read: number = 0;
+
+    for (const file of files) {
+        parseFile(file, allVariablePathMaps);
+        read++;
+
+        if (read % FILES_PER_TURN === 0) {
+            if (report) {
+                report(read, files.length);
+            }
+
+            await new Promise(resolve => setTimeout(resolve, 0));
+        }
+    }
+
+    if (report) {
+        report(files.length, files.length);
+    }
 
     return allVariablePathMaps;
 }

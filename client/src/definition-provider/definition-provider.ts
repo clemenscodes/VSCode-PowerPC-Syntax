@@ -6,8 +6,8 @@ import { createLocation, normalizeAliasTemplate, getIncludes, getMatchingVariabl
 export class AsmDefinitionProvider implements vscode.DefinitionProvider {
     private variablePathMap: VariablePathMap;
 
-    public parseWorkspaceFolders (wsFolders: string[][]): void {
-        this.variablePathMap = parseFiles(wsFolders);
+    public async parseWorkspaceFolders (wsFolders: string[][], report?: (read: number, files: number) => void): Promise<void> {
+        this.variablePathMap = await parseFiles(wsFolders, report);
     }
 
     public parseSingleFile (documentPath: string): void {
