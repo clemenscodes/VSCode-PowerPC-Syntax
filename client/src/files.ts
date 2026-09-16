@@ -18,15 +18,15 @@ export function getAsmFiles (): Thenable<string[][]> {
         const globalAsmFilesPath = path.join(wsFolder.uri.fsPath, '**', '*.asm');
         const globalAsmSFilesPath = path.join(wsFolder.uri.fsPath, '**', '*.s');
 
-        promises.push(fg.async([globalAsmFilesPath, ...excludeFromFileSearch(wsFolder.uri.fsPath)]));
-        promises.push(fg.async([globalAsmSFilesPath, ...excludeFromFileSearch(wsFolder.uri.fsPath)]));
+        promises.push(fg.async([globalAsmFilesPath, ...excludeFromFileSearch(wsFolder.uri.fsPath)], { dot: true }));
+        promises.push(fg.async([globalAsmSFilesPath, ...excludeFromFileSearch(wsFolder.uri.fsPath)], { dot: true }));
     });
 
     return Promise.all(promises);
 }
 
 export function getAsmFile (filePath: string): Thenable<string[]> {
-    return fg.async(filePath);
+    return fg.async(filePath, { dot: true });
 }
 
 function getExtensionPath (): string {

@@ -1821,6 +1821,504 @@ export const Commands: { [command: string]: Command } = {
 		  "xoris"
 	   ],
 	   "description":"XORs the upper 16 bits of a general-purpose register with a 16-bit unsigned integer and places the result in another general-purpose register."
+	},
+	"bctr":{
+	   "mnemonics":[
+		  "bctr",
+		  "bctrl"
+	   ],
+	   "description":"Branches unconditionally to the address held in the count register. The link form places the address of the following instruction into the link register."
+	},
+	"bctrl":{
+	   "mnemonics":[
+		  "bctrl"
+	   ],
+	   "description":"Branches unconditionally to the address held in the count register and places the address of the following instruction into the link register, which is how a call through a function pointer is made."
+	},
+	"bdnz":{
+	   "mnemonics":[
+		  "bdnz",
+		  "bdnza",
+		  "bdnzl",
+		  "bdnzla"
+	   ],
+	   "description":"Decrements the count register and branches to the target address if the count register is then not zero."
+	},
+	"bdz":{
+	   "mnemonics":[
+		  "bdz",
+		  "bdza",
+		  "bdzl",
+		  "bdzla"
+	   ],
+	   "description":"Decrements the count register and branches to the target address if the count register is then zero."
+	},
+	"beqlr":{
+	   "mnemonics":[
+		  "beqlr"
+	   ],
+	   "description":"Branches to the address held in the link register if the equal bit of the condition register field is set, which returns from a function when two values compared equal."
+	},
+	"bge":{
+	   "mnemonics":[
+		  "bge",
+		  "bgea",
+		  "bgel",
+		  "bgela"
+	   ],
+	   "description":"Branches to the target address if the less than bit of the condition register field is clear, which is the case when the first compared value is greater than or equal to the second."
+	},
+	"bgelr":{
+	   "mnemonics":[
+		  "bgelr"
+	   ],
+	   "description":"Branches to the address held in the link register if the less than bit of the condition register field is clear."
+	},
+	"bgt":{
+	   "mnemonics":[
+		  "bgt",
+		  "bgta",
+		  "bgtl",
+		  "bgtla"
+	   ],
+	   "description":"Branches to the target address if the greater than bit of the condition register field is set."
+	},
+	"bgtlr":{
+	   "mnemonics":[
+		  "bgtlr"
+	   ],
+	   "description":"Branches to the address held in the link register if the greater than bit of the condition register field is set."
+	},
+	"ble":{
+	   "mnemonics":[
+		  "ble",
+		  "blea",
+		  "blel",
+		  "blela"
+	   ],
+	   "description":"Branches to the target address if the greater than bit of the condition register field is clear, which is the case when the first compared value is less than or equal to the second."
+	},
+	"blelr":{
+	   "mnemonics":[
+		  "blelr"
+	   ],
+	   "description":"Branches to the address held in the link register if the greater than bit of the condition register field is clear."
+	},
+	"blt":{
+	   "mnemonics":[
+		  "blt",
+		  "blta",
+		  "bltl",
+		  "bltla"
+	   ],
+	   "description":"Branches to the target address if the less than bit of the condition register field is set."
+	},
+	"bltlr":{
+	   "mnemonics":[
+		  "bltlr"
+	   ],
+	   "description":"Branches to the address held in the link register if the less than bit of the condition register field is set."
+	},
+	"bnelr":{
+	   "mnemonics":[
+		  "bnelr"
+	   ],
+	   "description":"Branches to the address held in the link register if the equal bit of the condition register field is clear."
+	},
+	"cmpw":{
+	   "mnemonics":[
+		  "cmpw"
+	   ],
+	   "description":"Compares the lower 32 bits of two general-purpose registers as signed integers and records the result in a condition register field."
+	},
+	"cmpd":{
+	   "mnemonics":[
+		  "cmpd"
+	   ],
+	   "description":"Compares two general-purpose registers as signed 64 bit integers and records the result in a condition register field."
+	},
+	"cmpdi":{
+	   "mnemonics":[
+		  "cmpdi"
+	   ],
+	   "description":"Compares a general-purpose register with a 16 bit signed immediate value as 64 bit integers and records the result in a condition register field."
+	},
+	"cmplw":{
+	   "mnemonics":[
+		  "cmplw"
+	   ],
+	   "description":"Compares the lower 32 bits of two general-purpose registers as unsigned integers and records the result in a condition register field."
+	},
+	"cmplwi":{
+	   "mnemonics":[
+		  "cmplwi"
+	   ],
+	   "description":"Compares the lower 32 bits of a general-purpose register with a 16 bit unsigned immediate value and records the result in a condition register field."
+	},
+	"cmpld":{
+	   "mnemonics":[
+		  "cmpld"
+	   ],
+	   "description":"Compares two general-purpose registers as unsigned 64 bit integers and records the result in a condition register field."
+	},
+	"cmpldi":{
+	   "mnemonics":[
+		  "cmpldi"
+	   ],
+	   "description":"Compares a general-purpose register with a 16 bit unsigned immediate value as 64 bit integers and records the result in a condition register field."
+	},
+	"fadds":{
+	   "mnemonics":[
+		  "fadds",
+		  "fadds."
+	   ],
+	   "description":"Adds two floating-point registers and places the result rounded to single precision into a floating-point register."
+	},
+	"fsubs":{
+	   "mnemonics":[
+		  "fsubs",
+		  "fsubs."
+	   ],
+	   "description":"Subtracts one floating-point register from another and places the result rounded to single precision into a floating-point register."
+	},
+	"fmuls":{
+	   "mnemonics":[
+		  "fmuls",
+		  "fmuls."
+	   ],
+	   "description":"Multiplies two floating-point registers and places the result rounded to single precision into a floating-point register."
+	},
+	"fdivs":{
+	   "mnemonics":[
+		  "fdivs",
+		  "fdivs."
+	   ],
+	   "description":"Divides one floating-point register by another and places the result rounded to single precision into a floating-point register."
+	},
+	"fmadds":{
+	   "mnemonics":[
+		  "fmadds",
+		  "fmadds."
+	   ],
+	   "description":"Multiplies two floating-point registers, adds a third, and places the result rounded to single precision into a floating-point register."
+	},
+	"fmsubs":{
+	   "mnemonics":[
+		  "fmsubs",
+		  "fmsubs."
+	   ],
+	   "description":"Multiplies two floating-point registers, subtracts a third, and places the result rounded to single precision into a floating-point register."
+	},
+	"fnmadds":{
+	   "mnemonics":[
+		  "fnmadds",
+		  "fnmadds."
+	   ],
+	   "description":"Multiplies two floating-point registers, adds a third, negates the sum, and places the result rounded to single precision into a floating-point register."
+	},
+	"fnmsubs":{
+	   "mnemonics":[
+		  "fnmsubs",
+		  "fnmsubs."
+	   ],
+	   "description":"Multiplies two floating-point registers, subtracts a third, negates the difference, and places the result rounded to single precision into a floating-point register."
+	},
+	"lis":{
+	   "mnemonics":[
+		  "lis"
+	   ],
+	   "description":"Places a 16 bit immediate value into the upper half of a general-purpose register and clears the lower half, which is how the upper half of an address is built."
+	},
+	"subi":{
+	   "mnemonics":[
+		  "subi"
+	   ],
+	   "description":"Subtracts a 16 bit signed immediate value from a general-purpose register and places the result into another general-purpose register."
+	},
+	"subis":{
+	   "mnemonics":[
+		  "subis"
+	   ],
+	   "description":"Subtracts a 16 bit immediate value shifted left by sixteen bits from a general-purpose register and places the result into another general-purpose register."
+	},
+	"subic":{
+	   "mnemonics":[
+		  "subic",
+		  "subic."
+	   ],
+	   "description":"Subtracts a 16 bit signed immediate value from a general-purpose register, places the result into another general-purpose register and records the carry."
+	},
+	"mftb":{
+	   "mnemonics":[
+		  "mftb",
+		  "mftbu"
+	   ],
+	   "description":"Places the contents of the time base register into a general-purpose register."
+	},
+	"lvx":{
+	   "mnemonics":[
+		  "lvx",
+		  "lvxl"
+	   ],
+	   "description":"Loads a sixteen byte vector from the address formed by two general-purpose registers into a vector register. The address is truncated to a sixteen byte boundary."
+	},
+	"stvx":{
+	   "mnemonics":[
+		  "stvx",
+		  "stvxl"
+	   ],
+	   "description":"Stores a vector register as sixteen bytes at the address formed by two general-purpose registers. The address is truncated to a sixteen byte boundary."
+	},
+	"lvewx":{
+	   "mnemonics":[
+		  "lvewx"
+	   ],
+	   "description":"Loads the four byte element at the address formed by two general-purpose registers into the matching element of a vector register, leaving the other elements undefined."
+	},
+	"lvlx":{
+	   "mnemonics":[
+		  "lvlx"
+	   ],
+	   "description":"Loads the bytes from the address formed by two general-purpose registers up to the next sixteen byte boundary into the left part of a vector register and fills the rest with zeroes."
+	},
+	"lvrx":{
+	   "mnemonics":[
+		  "lvrx"
+	   ],
+	   "description":"Loads the bytes from the previous sixteen byte boundary up to the address formed by two general-purpose registers into the right part of a vector register and fills the rest with zeroes."
+	},
+	"lvsl":{
+	   "mnemonics":[
+		  "lvsl"
+	   ],
+	   "description":"Builds the permutation vector that shifts an unaligned vector left into place, out of the low bits of the address formed by two general-purpose registers."
+	},
+	"lvsr":{
+	   "mnemonics":[
+		  "lvsr"
+	   ],
+	   "description":"Builds the permutation vector that shifts an unaligned vector right into place, out of the low bits of the address formed by two general-purpose registers."
+	},
+	"vaddfp":{
+	   "mnemonics":[
+		  "vaddfp"
+	   ],
+	   "description":"Adds the four single precision elements of two vector registers and places the four sums into a vector register."
+	},
+	"vsubfp":{
+	   "mnemonics":[
+		  "vsubfp"
+	   ],
+	   "description":"Subtracts the four single precision elements of one vector register from another and places the four differences into a vector register."
+	},
+	"vmaddfp":{
+	   "mnemonics":[
+		  "vmaddfp"
+	   ],
+	   "description":"Multiplies the four single precision elements of two vector registers, adds those of a third, and places the four results into a vector register."
+	},
+	"vnmsubfp":{
+	   "mnemonics":[
+		  "vnmsubfp"
+	   ],
+	   "description":"Multiplies the four single precision elements of two vector registers, subtracts those of a third, negates the four differences and places them into a vector register."
+	},
+	"vadduwm":{
+	   "mnemonics":[
+		  "vadduwm"
+	   ],
+	   "description":"Adds the four unsigned word elements of two vector registers and places the four sums into a vector register, discarding any carry."
+	},
+	"vand":{
+	   "mnemonics":[
+		  "vand"
+	   ],
+	   "description":"Takes the bitwise AND of two vector registers and places the result into a vector register."
+	},
+	"vandc":{
+	   "mnemonics":[
+		  "vandc"
+	   ],
+	   "description":"Takes the bitwise AND of one vector register with the complement of another and places the result into a vector register."
+	},
+	"vor":{
+	   "mnemonics":[
+		  "vor"
+	   ],
+	   "description":"Takes the bitwise OR of two vector registers and places the result into a vector register."
+	},
+	"vxor":{
+	   "mnemonics":[
+		  "vxor"
+	   ],
+	   "description":"Takes the bitwise exclusive OR of two vector registers and places the result into a vector register, which clears a vector register when both sources are the same."
+	},
+	"vsel":{
+	   "mnemonics":[
+		  "vsel"
+	   ],
+	   "description":"Takes each bit from one of two vector registers according to the matching bit of a third and places the result into a vector register."
+	},
+	"vperm":{
+	   "mnemonics":[
+		  "vperm"
+	   ],
+	   "description":"Takes sixteen bytes out of the thirty two bytes of two vector registers, chosen one by one by the elements of a third, and places them into a vector register."
+	},
+	"vsldoi":{
+	   "mnemonics":[
+		  "vsldoi"
+	   ],
+	   "description":"Concatenates two vector registers and places the sixteen bytes beginning at a given byte offset into a vector register."
+	},
+	"vsl":{
+	   "mnemonics":[
+		  "vsl"
+	   ],
+	   "description":"Shifts a vector register left as one hundred twenty eight bit value by the bit count held in the low bits of every element of another and places the result into a vector register."
+	},
+	"vsr":{
+	   "mnemonics":[
+		  "vsr"
+	   ],
+	   "description":"Shifts a vector register right as one hundred twenty eight bit value by the bit count held in the low bits of every element of another and places the result into a vector register."
+	},
+	"vslb":{
+	   "mnemonics":[
+		  "vslb"
+	   ],
+	   "description":"Shifts each of the sixteen byte elements of a vector register left by the count in the matching element of another and places the result into a vector register."
+	},
+	"vslw":{
+	   "mnemonics":[
+		  "vslw"
+	   ],
+	   "description":"Shifts each of the four word elements of a vector register left by the count in the matching element of another and places the result into a vector register."
+	},
+	"vsrw":{
+	   "mnemonics":[
+		  "vsrw"
+	   ],
+	   "description":"Shifts each of the four word elements of a vector register right by the count in the matching element of another and places the result into a vector register."
+	},
+	"vspltw":{
+	   "mnemonics":[
+		  "vspltw"
+	   ],
+	   "description":"Copies one word element of a vector register into all four word elements of a vector register."
+	},
+	"vspltisb":{
+	   "mnemonics":[
+		  "vspltisb"
+	   ],
+	   "description":"Places a five bit signed immediate value into all sixteen byte elements of a vector register."
+	},
+	"vspltish":{
+	   "mnemonics":[
+		  "vspltish"
+	   ],
+	   "description":"Places a five bit signed immediate value into all eight halfword elements of a vector register."
+	},
+	"vspltisw":{
+	   "mnemonics":[
+		  "vspltisw"
+	   ],
+	   "description":"Places a five bit signed immediate value into all four word elements of a vector register."
+	},
+	"vmrghh":{
+	   "mnemonics":[
+		  "vmrghh"
+	   ],
+	   "description":"Interleaves the four halfword elements of the upper half of two vector registers and places the eight halfwords into a vector register."
+	},
+	"vmaxfp":{
+	   "mnemonics":[
+		  "vmaxfp"
+	   ],
+	   "description":"Places the larger of each pair of single precision elements of two vector registers into a vector register."
+	},
+	"vminfp":{
+	   "mnemonics":[
+		  "vminfp"
+	   ],
+	   "description":"Places the smaller of each pair of single precision elements of two vector registers into a vector register."
+	},
+	"vrefp":{
+	   "mnemonics":[
+		  "vrefp"
+	   ],
+	   "description":"Places an estimate of the reciprocal of each of the four single precision elements of a vector register into a vector register."
+	},
+	"vrsqrtefp":{
+	   "mnemonics":[
+		  "vrsqrtefp"
+	   ],
+	   "description":"Places an estimate of the reciprocal of the square root of each of the four single precision elements of a vector register into a vector register."
+	},
+	"vrfim":{
+	   "mnemonics":[
+		  "vrfim"
+	   ],
+	   "description":"Rounds each of the four single precision elements of a vector register towards minus infinity and places the results into a vector register."
+	},
+	"vrfip":{
+	   "mnemonics":[
+		  "vrfip"
+	   ],
+	   "description":"Rounds each of the four single precision elements of a vector register towards plus infinity and places the results into a vector register."
+	},
+	"vcfsx":{
+	   "mnemonics":[
+		  "vcfsx"
+	   ],
+	   "description":"Converts each of the four signed word elements of a vector register into single precision, divided by two raised to a given power, and places the results into a vector register."
+	},
+	"vctsxs":{
+	   "mnemonics":[
+		  "vctsxs"
+	   ],
+	   "description":"Converts each of the four single precision elements of a vector register, multiplied by two raised to a given power, into a signed word with saturation and places the results into a vector register."
+	},
+	"vcmpeqfp":{
+	   "mnemonics":[
+		  "vcmpeqfp",
+		  "vcmpeqfp."
+	   ],
+	   "description":"Compares each pair of single precision elements of two vector registers for equality and places all ones where they are equal and all zeroes where they are not."
+	},
+	"vcmpgefp":{
+	   "mnemonics":[
+		  "vcmpgefp",
+		  "vcmpgefp."
+	   ],
+	   "description":"Compares each pair of single precision elements of two vector registers and places all ones where the first is greater than or equal to the second."
+	},
+	"vcmpgtfp":{
+	   "mnemonics":[
+		  "vcmpgtfp",
+		  "vcmpgtfp."
+	   ],
+	   "description":"Compares each pair of single precision elements of two vector registers and places all ones where the first is greater than the second."
+	},
+	"vcmpequw":{
+	   "mnemonics":[
+		  "vcmpequw",
+		  "vcmpequw."
+	   ],
+	   "description":"Compares each pair of word elements of two vector registers for equality and places all ones where they are equal and all zeroes where they are not."
+	},
+	"vcmpequb":{
+	   "mnemonics":[
+		  "vcmpequb",
+		  "vcmpequb."
+	   ],
+	   "description":"Compares each pair of byte elements of two vector registers for equality and places all ones where they are equal and all zeroes where they are not."
+	},
+	"vsumsws":{
+	   "mnemonics":[
+		  "vsumsws"
+	   ],
+	   "description":"Adds the four signed word elements of a vector register and the lowest word element of another with saturation and places the sum into the lowest word element of a vector register."
 	}
  };
 
